@@ -1,4 +1,5 @@
 import math
+import matplotlib
 import matplotlib.pyplot as plt
 import keyboard
 from ai2thor.controller import Controller
@@ -98,7 +99,7 @@ if __name__ == "__main__":
     c = Controller()
     c.start()
     c.reset("FloorPlan1_physics")
-    event = c.step(dict(action='Initialize', gridSize=0.25, makeAgentsVisible = True))
+    event = c.step(dict(action='Initialize', gridSize=0.25, makeAgentsVisible = False))
     tracedPos = []
     tracedPos.append(position_to_tuple(c.last_event.metadata["agent"]["position"]))
 
