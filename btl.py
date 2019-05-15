@@ -29,8 +29,7 @@ class ThorPositionTo2DFrameTranslator(object):
                 round(self.frame_shape[1] * camera_position[0]),
             ),
 	    dtype = int,
-        )
-
+        
 
 def position_to_tuple(position):
     return (position["x"], position["y"], position["z"])
@@ -64,7 +63,7 @@ def add_agent_view_triangle(
     first = 0
     p_last = tuple(reversed(pos_translator(tracedPos[0])))
 
-    #ve tap cac diem agent da di qua		 	
+    # Draw trajectories	 		
     for p0_ in tracedPos:
 	p1 = copy.copy(p0_)
 	p2 = copy.copy(p0_)
@@ -84,8 +83,6 @@ def add_agent_view_triangle(
 
 	if (first != 0):
 		p_now = tuple(reversed(pos_translator(p0_)))
-		print(p_last)
-		print(p_now)
 		draw2.line([p_last,p_now], fill=(255,255,0,255), width = 20)
 		p_last = p_now
 	else:
@@ -102,8 +99,9 @@ if __name__ == "__main__":
     event = c.step(dict(action='Initialize', gridSize=0.25, makeAgentsVisible = False))
     tracedPos = []
     tracedPos.append(position_to_tuple(c.last_event.metadata["agent"]["position"]))
+    posY = event.metadata['agent']['rotation']['y']	
 
-    #vong lap dieu khien agent			
+    # Agent controller		
     while True:
 	if keyboard.is_pressed('w'):
 		event = c.step(dict(action = 'MoveAhead'))

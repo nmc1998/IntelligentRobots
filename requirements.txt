@@ -1,0 +1,7 @@
+matplotlib==3.0.3
+ai2thor==1.0.2
+keyboard==0.13.3
+numpy==1.16.2
+numpydoc==0.8.0
+Pillow==5.4.1
+
