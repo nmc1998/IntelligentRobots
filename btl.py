@@ -52,7 +52,7 @@ def get_agent_map_data(c):
     return to_return
 
 
-def add_agent_view_triangle(
+def add_trajectories(
     position, rotation, frame, pos_translator, scale=1.0, opacity=0.7
 ):
     img1 = Image.fromarray(frame.astype("uint8"), "RGB").convert("RGBA")
@@ -127,7 +127,7 @@ if __name__ == "__main__":
 		tracedPos.append(position_to_tuple(c.last_event.metadata["agent"]["position"]))
 	elif keyboard.is_pressed('f'):
 		t = get_agent_map_data(c)
-		new_frame = add_agent_view_triangle(
+		new_frame = add_trajectories(
 			position_to_tuple(c.last_event.metadata["agent"]["position"]),
 			c.last_event.metadata["agent"]["rotation"]["y"],
 			t["frame"],
