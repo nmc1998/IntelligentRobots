@@ -117,7 +117,6 @@ if __name__ == "__main__":
 		event = c.step(dict(action = 'Rotate', rotation = posY)) 
 	elif keyboard.is_pressed('up'):
 		event = c.step(dict(action = 'LookUp'))
-		tracedPos.append(position_to_tuple(c.last_event.metadata["agent"]["position"]))
 	elif keyboard.is_pressed('down'):
 		event = c.step(dict(action = 'LookDown'))
 	elif keyboard.is_pressed('left'):
